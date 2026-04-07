@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spun Pages favicon enlarged">
+  <rect width="64" height="64" fill="none"/>
+
+  <!-- enlarged page body -->
+  <path d="M10 13
+           H43
+           C48 13 52 17 52 22
+           V44
+           C52 49 48 53 43 53
+           H14
+           C9 53 6 49 6 44
+           V17
+           C6 14.8 7.8 13 10 13Z"
+        fill="none"
+        stroke="#B3A59B"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="5 5"/>
+
+  <!-- page top dots -->
+  <circle cx="17" cy="22" r="2.4" fill="#B3A59B"/>
+  <circle cx="26" cy="22" r="2.4" fill="#B3A59B"/>
+
+  <!-- spun corner -->
+  <path d="M44 13
+           C56 13, 60 21, 57 31"
+        fill="none"
+        stroke="#B3A59B"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="5 5"/>
+
+  <!-- thread stroke -->
+  <path d="M6 44
+           C17 36, 29 36, 37 41
+           C43 45, 50 46, 58 42"
+        fill="none"
+        stroke="#C98F93"
+        stroke-width="4.5"
+        stroke-linecap="round"/>
+</svg>

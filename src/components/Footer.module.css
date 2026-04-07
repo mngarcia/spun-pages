@@ -1,0 +1,67 @@
+.footer {
+  border-top: 1px solid var(--border-light);
+  padding: 3rem 0 2.5rem;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  height: 105px;
+  width: auto;
+  display: block;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-subtle);
+  transition: color 0.2s;
+}
+
+.links a:hover { color: var(--accent); }
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.copy {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.tagline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
