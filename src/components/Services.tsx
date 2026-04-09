@@ -1,66 +1,19 @@
 import styles from './Services.module.css'
+import { useLang } from '../context/LangContext'
+import { translations, type Package } from '../i18n/translations'
 
-type Package = {
-  icon: string
-  name: string
-  subtitle?: string
-  desc: string
-  tags: string[]
-  turnaround?: string
-  featured?: boolean
-  retainer?: boolean
-}
-
-const BUILDER_PACKAGES: Package[] = [
-  {
-    icon: '🌱',
-    name: 'Starter Presence',
-    desc: '5-page Wix or Squarespace site — ideal for restaurants, salons, or service providers who just need to be found online. Includes branding setup and contact form.',
-    tags: ['Wix / Squarespace', 'Mobile responsive'],
-    turnaround: '~1 week',
-  },
-  {
-    icon: '⭐',
-    name: 'Business Pro',
-    subtitle: 'React + TypeScript — up to 5 pages',
-    desc: 'A hand-coded React and TypeScript site with SEO built in from the start. Fast, clean, and fully custom — no templates, no bloat. Best for businesses that want a professional web presence that actually performs.',
-    tags: ['React', 'TypeScript', 'SEO included', 'Performance optimized'],
-    turnaround: '2–4 weeks',
-    featured: true,
-  },
-  {
-    icon: '🛒',
-    name: 'eCommerce Launch',
-    desc: 'Online store setup with product catalog, payment processing, automated emails, and inventory basics. Includes Toast integration for restaurants and food businesses with online ordering needs.',
-    tags: ['Shopify / Wix eCommerce', 'Toast (food ordering)', 'Payment setup'],
-    turnaround: '2–3 weeks',
-  },
-]
-
-const CUSTOM_PACKAGES: Package[] = [
-  {
-    icon: '🔧',
-    name: 'Full Custom + Features',
-    desc: 'Complex apps — custom portals, booking systems, dashboards, multi-location business sites. Scoped per project.',
-    tags: ['Custom scope', 'Auth / dashboards', 'API integrations'],
-  },
-  {
-    icon: '🔁',
-    name: 'Maintenance & Updates',
-    desc: 'Monthly content updates, performance monitoring, security patches, and priority support.',
-    tags: ['Recurring retainer', 'Priority support'],
-    retainer: true,
-  },
-]
-
-function PackageCard({ pkg }: { pkg: Package }) {
+function PackageCard({ pkg, badgeMostPopular, ctaGetQuote }: {
+  pkg: Package
+  badgeMostPopular: string
+  ctaGetQuote: string
+}) {
   return (
     <div className={[
       styles.card,
       pkg.featured ? styles.featured : '',
       pkg.retainer ? styles.retainer : '',
     ].join(' ')}>
-      {pkg.featured && <span className={styles.badge}>Most popular</span>}
+      {pkg.featured && <span className={styles.badge}>{badgeMostPopular}</span>}
       <div className={styles.cardTop}>
         <span className={styles.icon}>{pkg.icon}</span>
         <div>
@@ -81,39 +34,53 @@ function PackageCard({ pkg }: { pkg: Package }) {
         href="#contact"
         className={`btn ${pkg.featured ? 'btn-primary' : 'btn-outline'} ${styles.cta}`}
       >
-        Get a quote
+        {ctaGetQuote}
       </a>
     </div>
   )
 }
 
 export default function Services() {
+  const { lang } = useLang()
+  const tx = translations[lang].services
+
   return (
     <section id="services" className={`section ${styles.services}`}>
       <div className="container">
-        <span className="section-label">What I offer</span>
-        <h2 className="section-title">Packages built<br />for where you are</h2>
-        <p className="section-subtitle">
-          Every site is built to your business — not assembled from a theme.
-          Every quote is tailored.
-        </p>
+        <span className="section-label">{tx.label}</span>
+        <h2 className="section-title">{tx.title1}<br />{tx.title2}</h2>
+        <p className="section-subtitle">{tx.subtitle}</p>
 
         <div className={styles.group}>
-          <h3 className={styles.groupLabel}>Website builder packages</h3>
+          <h3 className={styles.groupLabel}>{tx.groupBuilder}</h3>
           <div className={`${styles.grid} ${styles.gridThree}`}>
-            {BUILDER_PACKAGES.map(pkg => <PackageCard key={pkg.name} pkg={pkg} />)}
+            {tx.builderPackages.map(pkg => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                badgeMostPopular={tx.badgeMostPopular}
+                ctaGetQuote={tx.ctaGetQuote}
+              />
+            ))}
           </div>
         </div>
 
         <div className={styles.group}>
-          <h3 className={styles.groupLabel}>Custom coded packages</h3>
+          <h3 className={styles.groupLabel}>{tx.groupCustom}</h3>
           <div className={`${styles.grid} ${styles.gridTwo}`}>
-            {CUSTOM_PACKAGES.map(pkg => <PackageCard key={pkg.name} pkg={pkg} />)}
+            {tx.customPackages.map(pkg => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                badgeMostPopular={tx.badgeMostPopular}
+                ctaGetQuote={tx.ctaGetQuote}
+              />
+            ))}
           </div>
         </div>
 
         <p className={styles.note}>
-          Not sure which fits? <a href="#contact">Let's talk</a> — I'll point you in the right direction.
+          {tx.noteText} <a href="#contact">{tx.noteCta}</a> — {lang === 'en' ? "I'll point you in the right direction." : 'te oriento.'}
         </p>
       </div>
     </section>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spunpages.com/sitemap.xml

@@ -1,33 +1,30 @@
 import styles from './Hero.module.css'
+import { useLang } from '../context/LangContext'
+import { translations } from '../i18n/translations'
 
 export default function Hero() {
+  const { lang } = useLang()
+  const tx = translations[lang].hero
+
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.badge}>Available for new projects</div>
+        <div className={styles.badge}>{tx.badge}</div>
 
         <h1 className={styles.heading}>
-          Crafted sites.<br />
-          <em>Refined details.</em>
+          {tx.heading1}<br />
+          <em>{tx.heading2}</em>
         </h1>
 
-        <p className={styles.sub}>
-          I'm a freelance web developer specialising in clean, fast, beautifully
-          considered websites for small businesses, creatives, and founders who
-          care about the details as much as I do.
-        </p>
+        <p className={styles.sub}>{tx.sub}</p>
 
         <div className={styles.actions}>
-          <a href="#contact" className="btn btn-primary">Start a project</a>
-          <a href="#work" className="btn btn-outline">See my work</a>
+          <a href="#contact" className="btn btn-primary">{tx.ctaPrimary}</a>
+          <a href="#work" className="btn btn-outline">{tx.ctaSecondary}</a>
         </div>
 
         <div className={styles.stats}>
-          {[
-            { value: '5 yrs', label: 'in software development' },
-            { value: '50+', label: 'projects delivered' },
-            { value: '100%', label: 'on-time delivery' },
-          ].map(stat => (
+          {tx.stats.map(stat => (
             <div key={stat.label} className={styles.stat}>
               <span className={styles.statValue}>{stat.value}</span>
               <span className={styles.statLabel}>{stat.label}</span>

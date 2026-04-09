@@ -1,8 +1,12 @@
 import logo from '../assets/logo-no-tagline.png'
 import styles from './Footer.module.css'
+import { useLang } from '../context/LangContext'
+import { translations } from '../i18n/translations'
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const { lang } = useLang()
+  const tx = translations[lang].footer
 
   return (
     <footer className={styles.footer}>
@@ -12,18 +16,18 @@ export default function Footer() {
             <img src={logo} alt="Spun Pages" className={styles.logoImg} />
           </a>
           <nav className={styles.links}>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#services">{tx.navServices}</a>
+            <a href="#work">{tx.navWork}</a>
+            <a href="#about">{tx.navAbout}</a>
+            <a href="#contact">{tx.navContact}</a>
           </nav>
         </div>
 
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            © {year} Spun Pages. Crafted with care.
+            © {year} Spun Pages. {tx.copy}
           </p>
-          <p className={styles.tagline}>Crafted Sites. Refined Details.</p>
+          <p className={styles.tagline}>{tx.tagline}</p>
         </div>
       </div>
     </footer>

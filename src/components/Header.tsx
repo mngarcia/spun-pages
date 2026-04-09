@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/logo-no-tagline.png'
 import styles from './Header.module.css'
-
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLang } from '../context/LangContext'
+import { translations } from '../i18n/translations'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { lang, toggleLang } = useLang()
+  const tx = translations[lang].header
+
+  const NAV_LINKS = [
+    { label: tx.navServices, href: '#services' },
+    { label: tx.navWork, href: '#work' },
+    { label: tx.navAbout, href: '#about' },
+    { label: tx.navContact, href: '#contact' },
+  ]
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -20,7 +24,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="#" className={styles.logo} aria-label="Spun Pages — home">
           <img src={logo} alt="Spun Pages" className={styles.logoImg} />
@@ -38,20 +42,30 @@ export default function Header() {
             </a>
           ))}
           <a href="#contact" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-            Work with me
+            {tx.cta}
           </a>
         </nav>
 
-        <button
-          className={styles.menuToggle}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(o => !o)}
-        >
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-          <span className={styles.bar} />
-        </button>
+        <div className={styles.controls}>
+          <button
+            className={styles.langToggle}
+            onClick={toggleLang}
+            aria-label={lang === 'en' ? 'Traducir al español' : 'Translate to English'}
+          >
+            {lang === 'en' ? 'ES' : 'EN'}
+          </button>
+
+          <button
+            className={styles.menuToggle}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            <span className={styles.bar} />
+            <span className={styles.bar} />
+            <span className={styles.bar} />
+          </button>
+        </div>
       </div>
     </header>
   )

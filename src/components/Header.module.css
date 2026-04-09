@@ -50,6 +50,32 @@
 
 .navLink:hover { color: var(--text); }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.langToggle {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-subtle);
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.langToggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .menuToggle {
   display: none;
   flex-direction: column;
@@ -72,6 +98,11 @@
   .logoImg { height: 80px; }
 
   .menuToggle { display: flex; }
+
+  .menuActive {
+    background: var(--bg);
+    border-color: var(--border-light);
+  }
 
   .nav {
     display: none;

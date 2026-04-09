@@ -1,20 +1,21 @@
 import styles from './Work.module.css'
 import desktopImg from '../assets/portfolio - webpage.png'
 import mobileImg from '../assets/portfolio - mobile.png'
+import { useLang } from '../context/LangContext'
+import { translations } from '../i18n/translations'
 
 export default function Work() {
+  const { lang } = useLang()
+  const tx = translations[lang].work
+
   return (
     <section id="work" className={`section ${styles.work}`}>
       <div className="container">
-        <span className="section-label">Selected work</span>
-        <h2 className="section-title">Latest concept project</h2>
-        <p className="section-subtitle">
-          Every project is built from scratch — no themes, no shortcuts,
-          no cut corners.
-        </p>
+        <span className="section-label">{tx.label}</span>
+        <h2 className="section-title">{tx.title}</h2>
+        <p className="section-subtitle">{tx.subtitle}</p>
 
         <div className={styles.project}>
-          {/* Screenshots */}
           <div className={styles.screens}>
             <img
               src={desktopImg}
@@ -28,17 +29,12 @@ export default function Work() {
             />
           </div>
 
-          {/* Details */}
           <div className={styles.details}>
-            <span className={styles.category}>Home Services</span>
-            <h3 className={styles.name}>Reborn Remodeling & Repairs</h3>
-            <p className={styles.desc}>
-              Full business site for a residential remodeling contractor. Includes
-              service pages for kitchen, bathroom, and basement remodels, a
-              reviews section, and a contact form for online quotes.
-            </p>
+            <span className={styles.category}>{tx.category}</span>
+            <h3 className={styles.name}>{tx.projectName}</h3>
+            <p className={styles.desc}>{tx.projectDesc}</p>
             <div className={styles.tags}>
-              {['React', 'TypeScript', 'Mobile Responsive'].map(t => (
+              {tx.tags.map(t => (
                 <span key={t} className={styles.tag}>{t}</span>
               ))}
             </div>
