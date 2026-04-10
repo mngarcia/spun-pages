@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/logo-no-tagline.png'
+import logoWebp from '../assets/logo.webp'
 import styles from './Header.module.css'
 import { useLang } from '../context/LangContext'
 import { translations } from '../i18n/translations'
@@ -27,7 +28,10 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="#" className={styles.logo} aria-label="Spun Pages — home">
-          <img src={logo} alt="Spun Pages" className={styles.logoImg} />
+          <picture>
+            <source srcSet={logoWebp} type="image/webp" />
+            <img src={logo} alt="Spun Pages" className={styles.logoImg} width={636} height={446} fetchPriority="high" />
+          </picture>
         </a>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>

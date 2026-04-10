@@ -1,6 +1,8 @@
 import styles from './Work.module.css'
 import desktopImg from '../assets/portfolio - webpage.png'
+import desktopWebp from '../assets/portfolio - webpage.webp'
 import mobileImg from '../assets/portfolio - mobile.png'
+import mobileWebp from '../assets/portfolio - mobile.webp'
 import { useLang } from '../context/LangContext'
 import { translations } from '../i18n/translations'
 
@@ -17,16 +19,28 @@ export default function Work() {
 
         <div className={styles.project}>
           <div className={styles.screens}>
-            <img
-              src={desktopImg}
-              alt="Reborn Remodeling & Repairs — desktop"
-              className={styles.desktop}
-            />
-            <img
-              src={mobileImg}
-              alt="Reborn Remodeling & Repairs — mobile"
-              className={styles.mobile}
-            />
+            <picture>
+              <source srcSet={desktopWebp} type="image/webp" />
+              <img
+                src={desktopImg}
+                alt="Reborn Remodeling & Repairs — desktop"
+                className={styles.desktop}
+                loading="lazy"
+                width={2000}
+                height={1089}
+              />
+            </picture>
+            <picture>
+              <source srcSet={mobileWebp} type="image/webp" />
+              <img
+                src={mobileImg}
+                alt="Reborn Remodeling & Repairs — mobile"
+                className={styles.mobile}
+                loading="lazy"
+                width={807}
+                height={1499}
+              />
+            </picture>
           </div>
 
           <div className={styles.details}>

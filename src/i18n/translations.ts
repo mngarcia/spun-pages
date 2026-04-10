@@ -157,6 +157,12 @@ export const translations: Record<Lang, Translations> = {
           tags: ['Custom scope', 'Auth / dashboards', 'API integrations'],
         },
         {
+          icon: '✦',
+          name: 'Website Modernization',
+          desc: "Got an outdated site that no longer represents your brand? I rebuild it from the ground up — modern stack, faster performance, mobile-first, and built to last. Ideal for businesses moving off old WordPress, dated HTML sites, or templates they've outgrown.",
+          tags: ['Legacy → Modern', 'Performance', 'Mobile-first', 'Custom scope'],
+        },
+        {
           icon: '🔁',
           name: 'Maintenance & Updates',
           desc: 'Monthly content updates, performance monitoring, security patches, and priority support.',
@@ -200,7 +206,7 @@ export const translations: Record<Lang, Translations> = {
       placeholderEmail: 'you@company.com',
       labelBudget: 'Budget range',
       budgetPlaceholder: 'Select a range…',
-      budgets: ['Under $1,000', '$1,000 – $2,000', 'Over $2,000', 'Not sure yet'],
+      budgets: ['Under $1,000', '$1,000 – $3,000', 'Over $3,000', 'Not sure yet'],
       labelMessage: 'About your project',
       placeholderMessage: 'What are you building? Any deadlines or must-haves to know about?',
       errorMsg: 'Something went wrong — please try again or email info@spunpages.com directly.',
@@ -284,6 +290,12 @@ export const translations: Record<Lang, Translations> = {
           tags: ['Alcance personalizado', 'Auth / tableros', 'Integraciones API'],
         },
         {
+          icon: '✦',
+          name: 'Modernización de Sitio Web',
+          desc: '¿Tu sitio ya no representa tu marca? Lo reconstruyo desde cero — stack moderno, mejor rendimiento, diseño mobile-first y construido para durar. Ideal para negocios que quieren salir de WordPress antiguo, HTML desactualizado o plantillas que ya superaron.',
+          tags: ['Legacy → Moderno', 'Rendimiento', 'Mobile-first', 'Alcance personalizado'],
+        },
+        {
           icon: '🔁',
           name: 'Mantenimiento y Actualizaciones',
           desc: 'Actualizaciones de contenido mensuales, monitoreo de rendimiento, parches de seguridad y soporte prioritario.',
@@ -327,7 +339,7 @@ export const translations: Record<Lang, Translations> = {
       placeholderEmail: 'tu@empresa.com',
       labelBudget: 'Rango de presupuesto',
       budgetPlaceholder: 'Selecciona un rango…',
-      budgets: ['Menos de $1,000', '$1,000 – $2,000', 'Más de $2,000', 'Aún no lo sé'],
+      budgets: ['Menos de $1,000', '$1,000 – $3,000', 'Más de $3,000', 'Aún no lo sé'],
       labelMessage: 'Sobre tu proyecto',
       placeholderMessage: '¿Qué estás construyendo? ¿Hay plazos o requisitos importantes que deba saber?',
       errorMsg: 'Algo salió mal — por favor intenta de nuevo o escríbenos directamente a info@spunpages.com.',

@@ -28,24 +28,150 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Spun Pages",
-      "url": "https://spunpages.com",
-      "description": "Freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders.",
-      "slogan": "Crafted Sites. Refined Details.",
-      "founder": {
-        "@type": "Person",
-        "name": "Michelle Garcia"
-      },
-      "serviceType": ["Web Development", "Web Design", "eCommerce Development"],
-      "areaServed": "Worldwide",
-      "priceRange": "$$"
+      "@graph": [
+        {
+          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@id": "https://spunpages.com/#business",
+          "name": "Spun Pages",
+          "url": "https://spunpages.com",
+          "logo": "https://spunpages.com/og-image.png",
+          "image": "https://spunpages.com/og-image.png",
+          "description": "Freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders.",
+          "slogan": "Crafted Sites. Refined Details.",
+          "telephone": "+12406302234",
+          "email": "info@spunpages.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rockville",
+            "addressRegion": "MD",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Rockville"
+            },
+            {
+              "@type": "State",
+              "name": "Maryland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Worldwide"
+            }
+          ],
+          "priceRange": "$$",
+          "currenciesAccepted": "USD",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "serviceType": [
+            "Web Development",
+            "Web Design",
+            "eCommerce Development",
+            "React Development",
+            "TypeScript Development",
+            "Website Modernization",
+            "Website Maintenance"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Development Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Starter Presence",
+                  "description": "5-page Wix or Squarespace site ideal for restaurants, salons, or service providers. Includes branding setup and contact form."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Business Pro",
+                  "description": "Hand-coded React and TypeScript site with SEO built in from the start. Fast, clean, and fully custom — no templates, no bloat."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "eCommerce Launch",
+                  "description": "Online store setup with product catalog, payment processing, automated emails, and inventory basics."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Full Custom + Features",
+                  "description": "Complex apps — custom portals, booking systems, dashboards, and multi-location business sites."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website Modernization",
+                  "description": "Rebuilding outdated sites from the ground up — modern stack, faster performance, mobile-first. Ideal for businesses moving off old WordPress, dated HTML sites, or templates they've outgrown."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Maintenance & Updates",
+                  "description": "Monthly content updates, performance monitoring, security patches, and priority support."
+                }
+              }
+            ]
+          },
+          "founder": {
+            "@id": "https://spunpages.com/#founder"
+          },
+          "sameAs": [
+            "https://www.instagram.com/spun.pages"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://spunpages.com/#founder",
+          "name": "Michelle Garcia",
+          "jobTitle": "Freelance Web Developer",
+          "worksFor": {
+            "@id": "https://spunpages.com/#business"
+          },
+          "url": "https://spunpages.com",
+          "email": "info@spunpages.com",
+          "telephone": "+12406302234",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rockville",
+            "addressRegion": "MD",
+            "addressCountry": "US"
+          },
+          "knowsAbout": [
+            "Web Development",
+            "React",
+            "TypeScript",
+            "Next.js",
+            "Node.js",
+            "PostgreSQL",
+            "eCommerce Development",
+            "Shopify",
+            "SEO",
+            "UI/UX Design"
+          ]
+        }
+      ]
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
