@@ -67,7 +67,7 @@ export default function Services() {
 
         <div className={styles.group}>
           <h3 className={styles.groupLabel}>{tx.groupCustom}</h3>
-          <div className={`${styles.grid} ${styles.gridTwo}`}>
+          <div className={`${styles.grid} ${styles.gridThree} ${styles.alignStart}`}>
             {tx.customPackages.map(pkg => (
               <PackageCard
                 key={pkg.name}

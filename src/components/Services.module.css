@@ -24,6 +24,14 @@
 .grid {
   display: grid;
   gap: 1.25rem;
+  align-items: stretch;
+}
+
+.gridThree {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.alignStart {
   align-items: start;
 }
 
