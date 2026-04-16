@@ -1,6 +1,7 @@
 /* ── Hero ──────────────────────────────────────────────── */
 .hero {
-  padding-top: 10rem;
+  padding-top: 8.5rem;
+  padding-bottom: 3rem;
   background: radial-gradient(
     ellipse 80% 50% at 50% -10%,
     rgba(181, 99, 106, 0.06) 0%,
@@ -9,7 +10,10 @@
 }
 
 @media (max-width: 700px) {
-  .hero { padding-top: 7rem; }
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 2.5rem;
+  }
 }
 
 .breadcrumb {

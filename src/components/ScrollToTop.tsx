@@ -9,7 +9,7 @@ export default function ScrollToTop() {
       const el = document.querySelector(hash)
       if (el) {
         const header = document.querySelector('header')
-        const offset = header ? header.getBoundingClientRect().height + 16 : 128
+        const offset = header ? header.getBoundingClientRect().height : 120
         const top = el.getBoundingClientRect().top + window.scrollY - offset
         window.scrollTo({ top, behavior: 'smooth' })
       }
