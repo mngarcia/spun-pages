@@ -47,11 +47,6 @@ export default function Work() {
             <span className={styles.category}>{tx.category}</span>
             <h3 className={styles.name}>{tx.projectName}</h3>
             <p className={styles.desc}>{tx.projectDesc}</p>
-            <div className={styles.tags}>
-              {tx.tags.map(t => (
-                <span key={t} className={styles.tag}>{t}</span>
-              ))}
-            </div>
           </div>
         </div>
       </div>

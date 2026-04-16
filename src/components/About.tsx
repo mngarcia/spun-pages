@@ -2,12 +2,6 @@ import styles from './About.module.css'
 import { useLang } from '../context/LangContext'
 import { translations } from '../i18n/translations'
 
-const STACK = [
-  'React', 'Next.js', 'TypeScript', 'Vite',
-  'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Figma',
-  'Shopify', 'Sanity', 'Vercel', 'AWS',
-]
-
 export default function About() {
   const { lang } = useLang()
   const tx = translations[lang].about
@@ -24,13 +18,16 @@ export default function About() {
         </div>
 
         <div className={styles.sidebar}>
-          <div className={styles.stackBox}>
-            <p className={styles.stackLabel}>{tx.stackLabel}</p>
-            <div className={styles.tags}>
-              {STACK.map(t => (
-                <span key={t} className={styles.tag}>{t}</span>
+          <div className={styles.howBox}>
+            <p className={styles.howLabel}>{tx.howLabel}</p>
+            <ul className={styles.howList}>
+              {tx.howItems.map(item => (
+                <li key={item} className={styles.howItem}>
+                  <span className={styles.howMark}>✦</span>
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

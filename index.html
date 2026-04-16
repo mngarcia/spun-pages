@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@type": "ProfessionalService",
           "@id": "https://spunpages.com/#business",
           "name": "Spun Pages",
           "url": "https://spunpages.com",
@@ -49,23 +49,16 @@
           "email": "info@spunpages.com",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "2012 Henry Rd",
             "addressLocality": "Rockville",
             "addressRegion": "MD",
+            "postalCode": "20851",
             "addressCountry": "US"
           },
           "areaServed": [
-            {
-              "@type": "City",
-              "name": "Rockville"
-            },
-            {
-              "@type": "State",
-              "name": "Maryland"
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "Worldwide"
-            }
+            { "@type": "City", "name": "Rockville" },
+            { "@type": "State", "name": "Maryland" },
+            { "@type": "AdministrativeArea", "name": "Worldwide" }
           ],
           "priceRange": "$$",
           "currenciesAccepted": "USD",
@@ -73,16 +66,13 @@
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "09:00",
-            "closes": "18:00"
+            "closes": "17:00"
           },
-          "serviceType": [
-            "Web Development",
+          "knowsAbout": [
             "Web Design",
-            "eCommerce Development",
-            "React Development",
-            "TypeScript Development",
-            "Website Modernization",
-            "Website Maintenance"
+            "Web Development",
+            "Local SEO",
+            "eCommerce Solutions"
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -92,76 +82,72 @@
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Starter Presence",
-                  "description": "5-page Wix or Squarespace site ideal for restaurants, salons, or service providers. Includes branding setup and contact form."
+                  "name": "Simple Business Website",
+                  "description": "A clean, professional 5-page small business website built on Wix or Squarespace. Perfect for restaurants, salons, contractors, and service providers getting started online."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Business Pro",
-                  "description": "Hand-coded React and TypeScript site with SEO built in from the start. Fast, clean, and fully custom — no templates, no bloat."
+                  "name": "Custom-Built Website",
+                  "description": "A fully custom professional website built from scratch — no templates, no shortcuts. Fast load times, mobile-friendly, and SEO built in so Google can find your business."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "eCommerce Launch",
-                  "description": "Online store setup with product catalog, payment processing, automated emails, and inventory basics."
+                  "name": "Online Store Setup",
+                  "description": "Everything small businesses need to start selling online — products listed, online payments set up, and order emails automated. Shopify, Wix eCommerce, and Toast integration for restaurants."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Full Custom + Features",
-                  "description": "Complex apps — custom portals, booking systems, dashboards, and multi-location business sites."
+                  "name": "Custom Web App or Portal",
+                  "description": "Booking systems, customer portals, staff dashboards, and multi-location business websites."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Website Modernization",
-                  "description": "Rebuilding outdated sites from the ground up — modern stack, faster performance, mobile-first. Ideal for businesses moving off old WordPress, dated HTML sites, or templates they've outgrown."
+                  "name": "Website Redesign",
+                  "description": "Rebuilding outdated websites from the ground up — modern design, faster load times, mobile-friendly."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Maintenance & Updates",
-                  "description": "Monthly content updates, performance monitoring, security patches, and priority support."
+                  "name": "Monthly SEO Management",
+                  "description": "Ongoing search engine optimization for small businesses — keyword tracking, on-page updates, and GSC monitoring."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Monthly Website Care",
+                  "description": "Monthly website maintenance including content updates, security patches, and priority support."
                 }
               }
             ]
           },
-          "founder": {
-            "@id": "https://spunpages.com/#founder"
-          },
-          "sameAs": [
-            "https://www.instagram.com/spun.pages"
-          ]
+          "founder": { "@id": "https://spunpages.com/#founder" },
+          "sameAs": [ "https://www.instagram.com/spun.pages" ]
         },
         {
           "@type": "Person",
           "@id": "https://spunpages.com/#founder",
           "name": "Michelle Garcia",
           "jobTitle": "Freelance Web Developer",
-          "worksFor": {
-            "@id": "https://spunpages.com/#business"
-          },
+          "worksFor": { "@id": "https://spunpages.com/#business" },
           "url": "https://spunpages.com",
           "email": "info@spunpages.com",
           "telephone": "+12406302234",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Rockville",
-            "addressRegion": "MD",
-            "addressCountry": "US"
-          },
           "knowsAbout": [
             "Web Development",
             "React",
@@ -169,7 +155,6 @@
             "Next.js",
             "Node.js",
             "PostgreSQL",
-            "eCommerce Development",
             "Shopify",
             "SEO",
             "UI/UX Design"

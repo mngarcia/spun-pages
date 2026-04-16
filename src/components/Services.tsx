@@ -2,40 +2,41 @@ import styles from './Services.module.css'
 import { useLang } from '../context/LangContext'
 import { translations, type Package } from '../i18n/translations'
 
-function PackageCard({ pkg, badgeMostPopular, ctaGetQuote }: {
+function PackageCard({ pkg, index, ctaGetQuote }: {
   pkg: Package
-  badgeMostPopular: string
+  index: number
   ctaGetQuote: string
 }) {
+  const num = String(index + 1).padStart(2, '0')
+  const features = pkg.turnaround ? [...pkg.tags, pkg.turnaround] : pkg.tags
+
   return (
     <div className={[
       styles.card,
       pkg.featured ? styles.featured : '',
       pkg.retainer ? styles.retainer : '',
     ].join(' ')}>
-      {pkg.featured && <span className={styles.badge}>{badgeMostPopular}</span>}
       <div className={styles.cardTop}>
-        <span className={styles.icon}>{pkg.icon}</span>
+        <span className={styles.num} aria-hidden>{num}</span>
         <div>
           <h3 className={styles.packageName}>{pkg.name}</h3>
           {pkg.subtitle && <span className={styles.subtitle}>{pkg.subtitle}</span>}
         </div>
       </div>
+
       <p className={styles.desc}>{pkg.desc}</p>
-      <div className={styles.tags}>
-        {pkg.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
-        {pkg.turnaround && (
-          <span className={`${styles.tag} ${styles.turnaround}`}>
-            ⏱ {pkg.turnaround}
-          </span>
-        )}
-      </div>
-      <a
-        href="#contact"
-        className={`btn ${pkg.featured ? 'btn-primary' : 'btn-outline'} ${styles.cta}`}
-      >
-        {ctaGetQuote}
-      </a>
+
+      <p className={styles.features}>{features.join(' · ')}</p>
+
+      {pkg.featured ? (
+        <a href="#contact" className={`btn btn-primary ${styles.cta}`}>
+          {ctaGetQuote}
+        </a>
+      ) : (
+        <a href="#contact" className={styles.ctaLink}>
+          {ctaGetQuote}
+        </a>
+      )}
     </div>
   )
 }
@@ -54,11 +55,11 @@ export default function Services() {
         <div className={styles.group}>
           <h3 className={styles.groupLabel}>{tx.groupBuilder}</h3>
           <div className={`${styles.grid} ${styles.gridThree}`}>
-            {tx.builderPackages.map(pkg => (
+            {tx.builderPackages.map((pkg, i) => (
               <PackageCard
                 key={pkg.name}
                 pkg={pkg}
-                badgeMostPopular={tx.badgeMostPopular}
+                index={i}
                 ctaGetQuote={tx.ctaGetQuote}
               />
             ))}
@@ -67,12 +68,12 @@ export default function Services() {
 
         <div className={styles.group}>
           <h3 className={styles.groupLabel}>{tx.groupCustom}</h3>
-          <div className={`${styles.grid} ${styles.gridThree} ${styles.alignStart}`}>
-            {tx.customPackages.map(pkg => (
+          <div className={`${styles.grid} ${styles.gridTwo} ${styles.alignStart}`}>
+            {tx.customPackages.map((pkg, i) => (
               <PackageCard
                 key={pkg.name}
                 pkg={pkg}
-                badgeMostPopular={tx.badgeMostPopular}
+                index={tx.builderPackages.length + i}
                 ctaGetQuote={tx.ctaGetQuote}
               />
             ))}
@@ -80,7 +81,8 @@ export default function Services() {
         </div>
 
         <p className={styles.note}>
-          {tx.noteText} <a href="#contact">{tx.noteCta}</a> — {lang === 'en' ? "I'll point you in the right direction." : 'te oriento.'}
+          {tx.noteText} <a href="#contact">{tx.noteCta}</a>
+          {lang === 'en' ? " — I'll point you in the right direction." : ' — te oriento.'}
         </p>
       </div>
     </section>

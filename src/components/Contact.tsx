@@ -8,7 +8,6 @@ const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT as string
 type FormState = {
   name: string
   email: string
-  budget: string
   message: string
 }
 
@@ -16,14 +15,14 @@ type Status = 'idle' | 'sending' | 'success' | 'error'
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>({
-    name: '', email: '', budget: '', message: '',
+    name: '', email: '', message: '',
   })
   const [status, setStatus] = useState<Status>('idle')
   const { lang } = useLang()
   const tx = translations[lang].contact
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -39,7 +38,6 @@ export default function Contact() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          budget: form.budget,
           message: form.message,
         }),
       })
@@ -96,17 +94,6 @@ export default function Contact() {
                     value={form.email} onChange={handleChange}
                   />
                 </div>
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="budget">{tx.labelBudget}</label>
-                <select
-                  id="budget" name="budget"
-                  value={form.budget} onChange={handleChange}
-                >
-                  <option value="">{tx.budgetPlaceholder}</option>
-                  {tx.budgets.map(b => <option key={b} value={b}>{b}</option>)}
-                </select>
               </div>
 
               <div className={styles.field}>
