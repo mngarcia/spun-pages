@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Services.module.css'
 import { useLang } from '../context/LangContext'
 import { translations, type Package } from '../i18n/translations'
@@ -11,11 +12,14 @@ function PackageCard({ pkg, index, ctaGetQuote }: {
   const features = pkg.turnaround ? [...pkg.tags, pkg.turnaround] : pkg.tags
 
   return (
-    <div className={[
-      styles.card,
-      pkg.featured ? styles.featured : '',
-      pkg.retainer ? styles.retainer : '',
-    ].join(' ')}>
+    <Link
+      to={`/services/${pkg.slug}`}
+      className={[
+        styles.card,
+        pkg.featured ? styles.featured : '',
+        pkg.retainer ? styles.retainer : '',
+      ].join(' ')}
+    >
       <div className={styles.cardTop}>
         <span className={styles.num} aria-hidden>{num}</span>
         <div>
@@ -29,15 +33,15 @@ function PackageCard({ pkg, index, ctaGetQuote }: {
       <p className={styles.features}>{features.join(' · ')}</p>
 
       {pkg.featured ? (
-        <a href="#contact" className={`btn btn-primary ${styles.cta}`}>
+        <span className={`btn btn-primary ${styles.cta}`}>
           {ctaGetQuote}
-        </a>
+        </span>
       ) : (
-        <a href="#contact" className={styles.ctaLink}>
+        <span className={styles.ctaLink}>
           {ctaGetQuote}
-        </a>
+        </span>
       )}
-    </div>
+    </Link>
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import logo from '../assets/logo-no-tagline.png'
 import logoWebp from '../assets/logo.webp'
 import styles from './Header.module.css'
@@ -10,12 +11,15 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { lang, toggleLang } = useLang()
   const tx = translations[lang].header
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+  const p = (hash: string) => isHome ? hash : `/${hash}`
 
   const NAV_LINKS = [
-    { label: tx.navServices, href: '#services' },
-    { label: tx.navWork, href: '#work' },
-    { label: tx.navAbout, href: '#about' },
-    { label: tx.navContact, href: '#contact' },
+    { label: tx.navServices, href: p('#services') },
+    { label: tx.navWork,     href: p('#work') },
+    { label: tx.navAbout,    href: p('#about') },
+    { label: tx.navContact,  href: p('#contact') },
   ]
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <a href="#" className={styles.logo} aria-label="Spun Pages — home">
+        <a href="/" className={styles.logo} aria-label="Spun Pages — home">
           <picture>
             <source srcSet={logoWebp} type="image/webp" />
             <img src={logo} alt="Spun Pages" className={styles.logoImg} width={636} height={446} fetchPriority="high" />
@@ -45,7 +49,7 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+          <a href={p('#contact')} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
             {tx.cta}
           </a>
         </nav>

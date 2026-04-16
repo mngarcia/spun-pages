@@ -1,0 +1,241 @@
+/* ── Hero ──────────────────────────────────────────────── */
+.hero {
+  padding-top: 10rem;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    rgba(181, 99, 106, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+.breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--accent); }
+
+.heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  max-width: 720px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.intro {
+  font-size: 1.0625rem;
+  color: var(--text-subtle);
+  line-height: 1.8;
+  max-width: 640px;
+  margin-bottom: 1.75rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  padding: 0.3rem 0.75rem;
+}
+
+.retainerBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(181, 99, 106, 0.07);
+  border: 1px dashed var(--accent);
+  border-radius: 100px;
+  padding: 0.3rem 0.75rem;
+}
+
+/* ── Details ───────────────────────────────────────────── */
+.details {
+  border-top: 1px solid var(--border-light);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.sectionHeading {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.includesItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-subtle);
+  line-height: 1.6;
+}
+
+.checkmark {
+  color: var(--accent);
+  font-size: 0.4rem;
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+}
+
+/* ── Sidebar cards ─────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sideCard {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.goodFor {
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+  line-height: 1.7;
+}
+
+.turnaround {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-style: italic;
+}
+
+.pricingNote {
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.ctaBtn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Other services ────────────────────────────────────── */
+.otherServices {
+  border-top: 1px solid var(--border-light);
+}
+
+.otherHeading {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .otherGrid { grid-template-columns: 1fr; }
+}
+
+.otherCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 1.125rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.otherCard:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.otherName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.otherArrow {
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.otherCard:hover .otherArrow {
+  transform: translateX(3px);
+}

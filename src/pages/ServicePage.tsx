@@ -1,0 +1,135 @@
+import { useParams, Navigate, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
+import { useLang } from '../context/LangContext'
+import { translations } from '../i18n/translations'
+import Header from '../components/Header'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
+import styles from './ServicePage.module.css'
+
+export default function ServicePage() {
+  const { slug } = useParams<{ slug: string }>()
+  const { lang } = useLang()
+  const tx = translations[lang].services
+
+  const allPkgs = [...tx.builderPackages, ...tx.customPackages]
+  const pkg = allPkgs.find(p => p.slug === slug)
+
+  if (!pkg) return <Navigate to="/" replace />
+
+  const features = pkg.turnaround ? [...pkg.tags, pkg.turnaround] : pkg.tags
+
+  return (
+    <>
+      <Helmet>
+        <title>{pkg.pageTitle}</title>
+        <meta name="description" content={pkg.pageMetaDesc} />
+        <link rel="canonical" href={`https://spunpages.com/services/${slug}`} />
+      </Helmet>
+
+      <Header />
+
+      <main>
+        <section className={`section ${styles.hero}`}>
+          <div className="container">
+            <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+              <Link to="/">{lang === 'en' ? 'Home' : 'Inicio'}</Link>
+              <span aria-hidden="true"> / </span>
+              <Link to="/#services">{lang === 'en' ? 'Services' : 'Servicios'}</Link>
+              <span aria-hidden="true"> / </span>
+              <span aria-current="page">{pkg.name}</span>
+            </nav>
+
+            <span className="section-label">{tx.label}</span>
+            <h1 className={styles.heading}>{pkg.name}</h1>
+            {pkg.subtitle && <p className={styles.subtitle}>{pkg.subtitle}</p>}
+            <p className={styles.intro}>{pkg.desc}</p>
+
+            <div className={styles.meta}>
+              {features.map(f => (
+                <span key={f} className={styles.tag}>{f}</span>
+              ))}
+              {pkg.retainer && (
+                <span className={styles.retainerBadge}>
+                  {lang === 'en' ? 'Monthly retainer' : 'Plan mensual'}
+                </span>
+              )}
+            </div>
+
+            <a href="#contact" className="btn btn-primary">{tx.ctaGetQuote}</a>
+          </div>
+        </section>
+
+        <section className={`section ${styles.details}`}>
+          <div className={`container ${styles.detailsGrid}`}>
+            <div>
+              <h2 className={styles.sectionHeading}>
+                {lang === 'en' ? "What's included" : 'Qué incluye'}
+              </h2>
+              <ul className={styles.includesList}>
+                {pkg.includes.map(item => (
+                  <li key={item} className={styles.includesItem}>
+                    <span className={styles.checkmark} aria-hidden="true">✦</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.sidebar}>
+              <div className={styles.sideCard}>
+                <h2 className={styles.sectionHeading}>
+                  {lang === 'en' ? 'Ideal for' : 'Ideal para'}
+                </h2>
+                <p className={styles.goodFor}>{pkg.goodFor}</p>
+              </div>
+
+              {pkg.turnaround && (
+                <div className={styles.sideCard}>
+                  <h2 className={styles.sectionHeading}>
+                    {lang === 'en' ? 'Typical timeline' : 'Tiempo estimado'}
+                  </h2>
+                  <p className={styles.turnaround}>{pkg.turnaround}</p>
+                </div>
+              )}
+
+              <div className={styles.sideCard}>
+                <h2 className={styles.sectionHeading}>
+                  {lang === 'en' ? 'Pricing' : 'Precio'}
+                </h2>
+                <p className={styles.pricingNote}>
+                  {lang === 'en'
+                    ? 'Every project is scoped and quoted individually — no vague day rates or hidden fees. Get a straight answer within one business day.'
+                    : 'Cada proyecto se cotiza individualmente — sin tarifas vagas ni cargos ocultos. Respuesta en un día hábil.'}
+                </p>
+                <a href="#contact" className={`btn btn-primary ${styles.ctaBtn}`}>
+                  {tx.ctaGetQuote}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={`section ${styles.otherServices}`}>
+          <div className="container">
+            <h2 className={styles.otherHeading}>
+              {lang === 'en' ? 'Other services' : 'Otros servicios'}
+            </h2>
+            <div className={styles.otherGrid}>
+              {allPkgs.filter(p => p.slug !== slug).slice(0, 3).map(p => (
+                <Link key={p.slug} to={`/services/${p.slug}`} className={styles.otherCard}>
+                  <span className={styles.otherName}>{p.name}</span>
+                  <span className={styles.otherArrow} aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Contact />
+      </main>
+
+      <Footer />
+    </>
+  )
+}

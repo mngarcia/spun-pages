@@ -4,13 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spun Pages — Crafted Sites. Refined Details.</title>
+    <title>Spun Pages — Freelance Web Developer in Rockville, MD</title>
 
     <!-- SEO -->
-    <meta name="description" content="Spun Pages is a freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders. Based online, working worldwide." />
+    <meta name="description" content="Freelance web developer in Rockville, MD. I build custom websites for small businesses, restaurants, and contractors — no templates, fixed pricing, fast load times, SEO built in." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Michelle Garcia, Spun Pages" />
     <link rel="canonical" href="https://spunpages.com" />
+
+    <!-- Localisation signals -->
+    <meta name="geo.region" content="US-MD" />
+    <meta name="geo.placename" content="Rockville, Maryland" />
+    <meta name="geo.position" content="39.0840;-77.1528" />
+    <meta name="ICBM" content="39.0840, -77.1528" />
+
+    <!-- Language alternates -->
+    <link rel="alternate" hreflang="en" href="https://spunpages.com" />
+    <link rel="alternate" hreflang="es" href="https://spunpages.com/?lang=es" />
+    <link rel="alternate" hreflang="x-default" href="https://spunpages.com" />
 
     <!-- Icons & theme -->
     <link rel="apple-touch-icon" href="/spun-pages-icon.png" />
@@ -18,17 +29,19 @@
     <meta name="theme-color" content="#b5636a" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Spun Pages — Crafted Sites. Refined Details." />
-    <meta property="og:description" content="Freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders." />
+    <meta property="og:title" content="Spun Pages — Freelance Web Developer in Rockville, MD" />
+    <meta property="og:description" content="Freelance web developer in Rockville, MD. Custom websites for small businesses, restaurants, and contractors. No templates. Fixed pricing. Fast, mobile-friendly, SEO-ready." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://spunpages.com" />
     <meta property="og:image" content="https://spunpages.com/og-image.png" />
     <meta property="og:site_name" content="Spun Pages" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_US" />
 
     <!-- Twitter / X card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Spun Pages — Crafted Sites. Refined Details." />
-    <meta name="twitter:description" content="Freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders." />
+    <meta name="twitter:title" content="Spun Pages — Freelance Web Developer in Rockville, MD" />
+    <meta name="twitter:description" content="Custom websites for small businesses, restaurants, and contractors in Rockville, MD. No templates. Fixed pricing. Fast, mobile-friendly, SEO built in." />
     <meta name="twitter:image" content="https://spunpages.com/og-image.png" />
 
     <!-- Structured data -->
@@ -37,13 +50,13 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "ProfessionalService",
+          "@type": ["ProfessionalService", "LocalBusiness"],
           "@id": "https://spunpages.com/#business",
           "name": "Spun Pages",
           "url": "https://spunpages.com",
           "logo": "https://spunpages.com/og-image.png",
           "image": "https://spunpages.com/og-image.png",
-          "description": "Freelance web development studio crafting clean, fast, beautifully considered websites for small businesses, creatives, and founders.",
+          "description": "Spun Pages is a freelance web development studio in Rockville, MD. We build custom websites, online stores, and web apps for small businesses, restaurants, contractors, and creatives — no templates, fixed pricing, fast load times, and SEO built in.",
           "slogan": "Crafted Sites. Refined Details.",
           "telephone": "+12406302234",
           "email": "info@spunpages.com",
@@ -57,8 +70,15 @@
           },
           "areaServed": [
             { "@type": "City", "name": "Rockville" },
+            { "@type": "City", "name": "Gaithersburg" },
+            { "@type": "City", "name": "Bethesda" },
+            { "@type": "City", "name": "Silver Spring" },
+            { "@type": "City", "name": "Washington DC" },
+            { "@type": "AdministrativeArea", "name": "Montgomery County, Maryland" },
+            { "@type": "AdministrativeArea", "name": "Prince George's County, Maryland" },
             { "@type": "State", "name": "Maryland" },
-            { "@type": "AdministrativeArea", "name": "Worldwide" }
+            { "@type": "State", "name": "Virginia" },
+            { "@type": "AdministrativeArea", "name": "United States" }
           ],
           "priceRange": "$$",
           "currenciesAccepted": "USD",
@@ -69,10 +89,16 @@
             "closes": "17:00"
           },
           "knowsAbout": [
-            "Web Design",
-            "Web Development",
+            "Custom Website Design",
+            "Small Business Website Development",
+            "Freelance Web Developer",
             "Local SEO",
-            "eCommerce Solutions"
+            "eCommerce Setup",
+            "Shopify Development",
+            "Website Redesign",
+            "React Development",
+            "Mobile-Friendly Websites",
+            "WordPress Migration"
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -82,62 +108,100 @@
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Simple Business Website",
-                  "description": "A clean, professional 5-page small business website built on Wix or Squarespace. Perfect for restaurants, salons, contractors, and service providers getting started online."
+                  "name": "Small Business Website Design",
+                  "description": "Affordable small business website design in Rockville, MD. A clean, professional 5-page website built on Wix or Squarespace — perfect for restaurants, salons, contractors, and local service providers getting started online."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Custom-Built Website",
-                  "description": "A fully custom professional website built from scratch — no templates, no shortcuts. Fast load times, mobile-friendly, and SEO built in so Google can find your business."
+                  "name": "Custom Website Development",
+                  "description": "Custom website development for small businesses in Maryland and the DC metro area. Hand-coded from scratch — no templates, no shortcuts. Fast load times, mobile-friendly, and SEO built in so Google can find your business."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Online Store Setup",
-                  "description": "Everything small businesses need to start selling online — products listed, online payments set up, and order emails automated. Shopify, Wix eCommerce, and Toast integration for restaurants."
+                  "name": "eCommerce Website & Online Store Setup",
+                  "description": "eCommerce website setup for small businesses — products listed, Shopify or Wix payments configured, and order emails automated. Toast POS integration for restaurants and food businesses in Maryland."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Custom Web App or Portal",
-                  "description": "Booking systems, customer portals, staff dashboards, and multi-location business websites."
+                  "name": "Custom Web Application Development",
+                  "description": "Custom web app and portal development — booking systems, customer portals, staff dashboards, and multi-location business websites for Maryland and DC area businesses."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Website Redesign",
-                  "description": "Rebuilding outdated websites from the ground up — modern design, faster load times, mobile-friendly."
+                  "name": "Website Redesign Services",
+                  "description": "Website redesign services for small businesses in Rockville, MD. Rebuilding outdated WordPress sites, DIY templates, and slow-loading sites from the ground up — modern design, fast load times, mobile-friendly."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Monthly SEO Management",
-                  "description": "Ongoing search engine optimization for small businesses — keyword tracking, on-page updates, and GSC monitoring."
+                  "name": "Local SEO Management",
+                  "description": "Monthly local SEO management for small businesses in Maryland — keyword tracking, on-page optimization, Google Search Console monitoring, and Google Business Profile management to improve search rankings."
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Monthly Website Care",
-                  "description": "Monthly website maintenance including content updates, security patches, and priority support."
+                  "name": "Monthly Website Maintenance",
+                  "description": "Monthly website care plan — content updates, security patches, performance checks, and priority support so your small business website stays fast, secure, and current."
                 }
               }
             ]
           },
           "founder": { "@id": "https://spunpages.com/#founder" },
           "sameAs": [ "https://www.instagram.com/spun.pages" ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://spunpages.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does a small business website cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pricing at Spun Pages is fixed and transparent — no surprise invoices. A simple 5-page business website on Wix or Squarespace starts lower than a fully custom-coded site. Every project gets a tailored quote based on what you actually need. Contact us for a free proposal within 3 business days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you build websites for small businesses in Maryland?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Spun Pages is based in Rockville, MD and works with small businesses throughout Montgomery County, the DC metro area, and nationwide. We build custom websites, online stores, and web apps for restaurants, contractors, salons, and service providers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to build a website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A simple business website typically takes about 1 week. A fully custom-built website takes 2–4 weeks. An online store setup takes 2–3 weeks. Timelines depend on content readiness and project complexity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will I own my website after it's built?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — your site and all source code are yours to keep. No ongoing fees to Spun Pages unless you choose a monthly care or SEO plan."
+              }
+            }
+          ]
         },
         {
           "@type": "Person",

@@ -47,6 +47,9 @@
   gap: 1rem;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .card:hover {
