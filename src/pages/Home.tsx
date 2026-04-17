@@ -30,9 +30,9 @@ export const meta: MetaFunction = () => [
       'Custom websites, online stores, and web apps for small businesses in Rockville, MD and the DC metro area.',
   },
   { tagName: 'link', rel: 'canonical', href: 'https://spunpages.com/' },
-  { tagName: 'link', rel: 'alternate', hreflang: 'en', href: 'https://spunpages.com/' },
-  { tagName: 'link', rel: 'alternate', hreflang: 'es', href: 'https://spunpages.com/es' },
-  { tagName: 'link', rel: 'alternate', hreflang: 'x-default', href: 'https://spunpages.com/' },
+  { tagName: 'link', rel: 'alternate', hrefLang: 'en', href: 'https://spunpages.com/' },
+  { tagName: 'link', rel: 'alternate', hrefLang: 'es', href: 'https://spunpages.com/es' },
+  { tagName: 'link', rel: 'alternate', hrefLang: 'x-default', href: 'https://spunpages.com/' },
 ]
 
 export default function Home() {

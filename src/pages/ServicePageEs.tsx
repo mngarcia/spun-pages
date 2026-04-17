@@ -26,9 +26,9 @@ export const meta: MetaFunction = ({ params }) => {
     { name: 'twitter:title', content: pkg.pageTitle },
     { name: 'twitter:description', content: pkg.pageMetaDesc },
     { tagName: 'link', rel: 'canonical', href: `https://spunpages.com/es/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hreflang: 'en', href: `https://spunpages.com/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hreflang: 'es', href: `https://spunpages.com/es/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hreflang: 'x-default', href: `https://spunpages.com/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'en', href: `https://spunpages.com/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'es', href: `https://spunpages.com/es/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'x-default', href: `https://spunpages.com/services/${slug}` },
   ]
 }
 

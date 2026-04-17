@@ -9,16 +9,36 @@ import { translations } from '../i18n/translations'
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const { lang } = useLang()
+  const { lang, toggleLang } = useLang()
   const tx = translations[lang].header
   const { pathname } = useLocation()
   const isSpanish = pathname.startsWith('/es')
   const langBase = isSpanish ? '/es' : ''
   const isHome = pathname === '/' || pathname === '/es' || pathname === '/es/'
-  const p = (hash: string) => isHome ? hash : `${langBase}/${hash}`
+  const p = (anchor: string) => isHome ? anchor : `${langBase}/${anchor}`
   const langHref = isSpanish
     ? pathname.replace(/^\/es/, '') || '/'
     : `/es${pathname === '/' ? '' : pathname}`
+
+  const handleLangClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHome) {
+      e.preventDefault()
+      // Pin the section currently at the top of the viewport
+      const sectionIds = ['services', 'work', 'about', 'contact']
+      let pinned = ''
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= 100) pinned = id
+      }
+      toggleLang()
+      // After React re-renders with new content heights, snap back to the pinned section
+      if (pinned) {
+        setTimeout(() => {
+          document.getElementById(pinned)?.scrollIntoView({ behavior: 'instant' })
+        }, 0)
+      }
+    }
+  }
 
   const NAV_LINKS = [
     { label: tx.navServices, href: p('#services') },
@@ -66,6 +86,7 @@ export default function Header() {
         <div className={styles.controls}>
           <a
             href={langHref}
+            onClick={handleLangClick}
             className={styles.langToggle}
             aria-label={lang === 'en' ? 'Traducir al español' : 'Translate to English'}
           >
