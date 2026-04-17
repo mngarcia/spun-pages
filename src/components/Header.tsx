@@ -9,11 +9,16 @@ import { translations } from '../i18n/translations'
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const { lang, toggleLang } = useLang()
+  const { lang } = useLang()
   const tx = translations[lang].header
   const { pathname } = useLocation()
-  const isHome = pathname === '/'
-  const p = (hash: string) => isHome ? hash : `/${hash}`
+  const isSpanish = pathname.startsWith('/es')
+  const langBase = isSpanish ? '/es' : ''
+  const isHome = pathname === '/' || pathname === '/es' || pathname === '/es/'
+  const p = (hash: string) => isHome ? hash : `${langBase}/${hash}`
+  const langHref = isSpanish
+    ? pathname.replace(/^\/es/, '') || '/'
+    : `/es${pathname === '/' ? '' : pathname}`
 
   const NAV_LINKS = [
     { label: tx.navServices, href: p('#services') },
@@ -59,13 +64,13 @@ export default function Header() {
         </nav>
 
         <div className={styles.controls}>
-          <button
+          <a
+            href={langHref}
             className={styles.langToggle}
-            onClick={toggleLang}
             aria-label={lang === 'en' ? 'Traducir al español' : 'Translate to English'}
           >
             {lang === 'en' ? 'ES' : 'EN'}
-          </button>
+          </a>
 
           <button
             className={styles.menuToggle}

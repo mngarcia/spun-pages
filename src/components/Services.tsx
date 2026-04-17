@@ -3,17 +3,19 @@ import styles from './Services.module.css'
 import { useLang } from '../context/LangContext'
 import { translations, type Package } from '../i18n/translations'
 
-function PackageCard({ pkg, index, ctaGetQuote }: {
+function PackageCard({ pkg, index, ctaGetQuote, lang }: {
   pkg: Package
   index: number
   ctaGetQuote: string
+  lang: string
 }) {
   const num = String(index + 1).padStart(2, '0')
   const features = pkg.turnaround ? [...pkg.tags, pkg.turnaround] : pkg.tags
+  const langPrefix = lang === 'es' ? '/es' : ''
 
   return (
     <Link
-      to={`/services/${pkg.slug}`}
+      to={`${langPrefix}/services/${pkg.slug}`}
       className={[
         styles.card,
         pkg.featured ? styles.featured : '',
@@ -65,6 +67,7 @@ export default function Services() {
                 pkg={pkg}
                 index={i}
                 ctaGetQuote={tx.ctaGetQuote}
+                lang={lang}
               />
             ))}
           </div>
@@ -79,6 +82,7 @@ export default function Services() {
                 pkg={pkg}
                 index={tx.builderPackages.length + i}
                 ctaGetQuote={tx.ctaGetQuote}
+                lang={lang}
               />
             ))}
           </div>

@@ -1,11 +1,36 @@
+import type { MetaFunction } from 'react-router'
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import { useLang } from '../context/LangContext'
 import { translations } from '../i18n/translations'
 import Header from '../components/Header'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import ScrollToTop from '../components/ScrollToTop'
 import styles from './ServicePage.module.css'
+
+export const meta: MetaFunction = ({ params }) => {
+  const slug = params.slug ?? ''
+  const en = translations.en.services
+  const allPkgs = [...en.builderPackages, ...en.customPackages]
+  const pkg = allPkgs.find(p => p.slug === slug)
+
+  if (!pkg) return [{ title: 'Spun Pages' }]
+
+  return [
+    { title: pkg.pageTitle },
+    { name: 'description', content: pkg.pageMetaDesc },
+    { property: 'og:title', content: pkg.pageTitle },
+    { property: 'og:description', content: pkg.pageMetaDesc },
+    { property: 'og:url', content: `https://spunpages.com/services/${slug}` },
+    { property: 'og:image', content: 'https://spunpages.com/og-image.png' },
+    { name: 'twitter:title', content: pkg.pageTitle },
+    { name: 'twitter:description', content: pkg.pageMetaDesc },
+    { tagName: 'link', rel: 'canonical', href: `https://spunpages.com/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hreflang: 'en', href: `https://spunpages.com/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hreflang: 'es', href: `https://spunpages.com/es/services/${slug}` },
+    { tagName: 'link', rel: 'alternate', hreflang: 'x-default', href: `https://spunpages.com/services/${slug}` },
+  ]
+}
 
 export default function ServicePage() {
   const { slug } = useParams<{ slug: string }>()
@@ -19,15 +44,21 @@ export default function ServicePage() {
 
   const features = pkg.turnaround ? [...pkg.tags, pkg.turnaround] : pkg.tags
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spunpages.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://spunpages.com/#services' },
+      { '@type': 'ListItem', position: 3, name: pkg.name, item: `https://spunpages.com/services/${slug}` },
+    ],
+  }
+
   return (
     <>
-      <Helmet>
-        <title>{pkg.pageTitle}</title>
-        <meta name="description" content={pkg.pageMetaDesc} />
-        <link rel="canonical" href={`https://spunpages.com/services/${slug}`} />
-      </Helmet>
-
+      <ScrollToTop />
       <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <main>
         <section className={`section ${styles.hero}`}>
