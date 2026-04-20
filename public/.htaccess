@@ -1,4 +1,19 @@
 Options -MultiViews
 DirectoryIndex index.html
 
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Add trailing slash for directories (prevents 404 on /services/slug)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+# Serve 404 page for anything that isn't a file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /404/index.html [L]
+
 ErrorDocument 404 /404/index.html

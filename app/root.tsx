@@ -21,10 +21,12 @@ export function links() {
 export function Layout({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation()
   const htmlLang = pathname.startsWith('/es') ? 'es' : 'en'
+  const canonical = `https://spunpages.com${pathname.endsWith('/') ? pathname : pathname + '/'}`
   return (
     <html lang={htmlLang}>
       <head>
         <meta charSet="UTF-8" />
+        <link rel="canonical" href={canonical} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Michelle Garcia, Spun Pages" />
