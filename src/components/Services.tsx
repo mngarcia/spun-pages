@@ -15,7 +15,7 @@ function PackageCard({ pkg, index, ctaGetQuote, lang }: {
 
   return (
     <Link
-      to={`${langPrefix}/services/${pkg.slug}`}
+      to={`${langPrefix}/services/${pkg.slug}/`}
       className={[
         styles.card,
         pkg.featured ? styles.featured : '',

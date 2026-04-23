@@ -21,14 +21,14 @@ export const meta: MetaFunction = ({ params }) => {
     { name: 'description', content: pkg.pageMetaDesc },
     { property: 'og:title', content: pkg.pageTitle },
     { property: 'og:description', content: pkg.pageMetaDesc },
-    { property: 'og:url', content: `https://spunpages.com/services/${slug}` },
+    { property: 'og:url', content: `https://spunpages.com/services/${slug}/` },
     { property: 'og:image', content: 'https://spunpages.com/og-image.png' },
     { name: 'twitter:title', content: pkg.pageTitle },
     { name: 'twitter:description', content: pkg.pageMetaDesc },
-    { tagName: 'link', rel: 'canonical', href: `https://spunpages.com/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hrefLang: 'en', href: `https://spunpages.com/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hrefLang: 'es', href: `https://spunpages.com/es/services/${slug}` },
-    { tagName: 'link', rel: 'alternate', hrefLang: 'x-default', href: `https://spunpages.com/services/${slug}` },
+    { tagName: 'link', rel: 'canonical', href: `https://spunpages.com/services/${slug}/` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'en', href: `https://spunpages.com/services/${slug}/` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'es', href: `https://spunpages.com/es/services/${slug}/` },
+    { tagName: 'link', rel: 'alternate', hrefLang: 'x-default', href: `https://spunpages.com/services/${slug}/` },
   ]
 }
 
@@ -50,7 +50,7 @@ export default function ServicePage() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spunpages.com/' },
       { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://spunpages.com/#services' },
-      { '@type': 'ListItem', position: 3, name: pkg.name, item: `https://spunpages.com/services/${slug}` },
+      { '@type': 'ListItem', position: 3, name: pkg.name, item: `https://spunpages.com/services/${slug}/` },
     ],
   }
 

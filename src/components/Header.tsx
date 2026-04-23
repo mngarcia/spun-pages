@@ -18,7 +18,7 @@ export default function Header() {
   const p = (anchor: string) => isHome ? anchor : `${langBase}/${anchor}`
   const langHref = isSpanish
     ? pathname.replace(/^\/es/, '') || '/'
-    : `/es${pathname === '/' ? '' : pathname}`
+    : `/es${pathname === '/' ? '/' : pathname}`
 
   const handleLangClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isHome) {
