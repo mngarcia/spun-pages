@@ -1,0 +1,50 @@
+.location {
+  border-top: 1px solid var(--border-light);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.body {
+  font-size: 1rem;
+  color: var(--text-subtle);
+  line-height: 1.8;
+  margin-top: 0.25rem;
+}
+
+.cities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  align-content: flex-start;
+}
+
+.city {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-subtle);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}

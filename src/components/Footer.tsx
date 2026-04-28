@@ -23,6 +23,14 @@ export default function Footer() {
           </nav>
         </div>
 
+        <address className={styles.nap}>
+          <span>Rockville, MD 20851</span>
+          <span aria-hidden="true">·</span>
+          <a href="tel:+12406302234">(240) 630-2234</a>
+          <span aria-hidden="true">·</span>
+          <a href="mailto:info@spunpages.com">info@spunpages.com</a>
+        </address>
+
         <div className={styles.bottom}>
           <p className={styles.copy}>
             © {year} Spun Pages. {tx.copy}

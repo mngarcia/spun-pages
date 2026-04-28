@@ -82,6 +82,12 @@ interface Translations {
     successTitle: string
     successBody: string
   }
+  location: {
+    label: string
+    title: string
+    body: string
+    cities: string[]
+  }
   footer: {
     navServices: string
     navWork: string
@@ -148,7 +154,7 @@ export const translations: Record<Lang, Translations> = {
           turnaround: '2–4 weeks',
           featured: true,
           slug: 'custom-website',
-          pageTitle: 'Custom Website Development for Small Businesses in Maryland | Spun Pages',
+          pageTitle: 'Custom Website Development Rockville MD | No Templates, SEO Built In | Spun Pages',
           pageMetaDesc: 'Hand-coded custom website development for small businesses in Maryland and the DC metro area. No templates, SEO built in, fast load times — built to bring in customers.',
           includes: [
             'Hand-coded from scratch — no templates, no page builders',
@@ -226,7 +232,7 @@ export const translations: Record<Lang, Translations> = {
           tags: ['Local SEO', 'Google ranking', 'Monthly reporting', 'Search visibility'],
           retainer: true,
           slug: 'seo-management',
-          pageTitle: 'Monthly Local SEO Management for Small Businesses | Spun Pages',
+          pageTitle: 'Local SEO Services Rockville MD | Monthly Management | Spun Pages',
           pageMetaDesc: 'Monthly local SEO services for small businesses in Maryland and DC. Keyword tracking, on-page updates, Google Search Console monitoring, and Google Business Profile management — handled for you.',
           includes: [
             'Monthly keyword ranking report',
@@ -304,6 +310,12 @@ export const translations: Record<Lang, Translations> = {
       submitSending: 'Sending…',
       successTitle: 'Message received',
       successBody: "I'll be in touch within one business day.",
+    },
+    location: {
+      label: 'Service area',
+      title: 'Based in Rockville, MD — serving the DC metro area',
+      body: 'I work with small businesses across Montgomery County, Northern Virginia, and DC. In-person or remote — wherever you are in the metro.',
+      cities: ['Montgomery County, MD', 'Northern Virginia', 'Washington DC'],
     },
     footer: {
       navServices: 'Services',
@@ -526,6 +538,12 @@ export const translations: Record<Lang, Translations> = {
       submitSending: 'Enviando…',
       successTitle: 'Mensaje recibido',
       successBody: 'Me comunicaré contigo en un día hábil.',
+    },
+    location: {
+      label: 'Área de servicio',
+      title: 'Con base en Rockville, MD — sirviendo al área metropolitana de DC',
+      body: 'Trabajo con pequeños negocios en el Condado de Montgomery, el Norte de Virginia y DC. En persona o de forma remota — donde sea que estés en el área metro.',
+      cities: ['Condado de Montgomery, MD', 'Norte de Virginia', 'Washington DC'],
     },
     footer: {
       navServices: 'Servicios',
